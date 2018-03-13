@@ -1,0 +1,31 @@
+div.relative {
+  position: relative;
+  top: 53px;
+}
+
+
+/deep/.countdown {
+  width: 60%;
+  height: 100px;
+  background: #eff0f2;
+  box-shadow: 7px 7px 5px #bcb8b8;
+}
+/deep/.two-dots {
+  display: none;
+  /*background: #eff0f2;*/
+}
+
+/deep/.measurements {
+  color: blue;
+  margin-right: 5px;
+  padding: 5px;
+  /*border:2px solid green;*/
+  /*background: #eff0f2;*/
+  text-align: center;
+}
+
+/deep/.divider {
+  font-size: 30px;
+}
+
+

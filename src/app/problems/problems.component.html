@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <app-problem-item [index]=index [probId]=probId></app-problem-item>
+    </div>
+    <div class="col-md-4">
+      <app-prob-sidebar></app-prob-sidebar>
+    </div>
+  </div>
+  <br>
+  <hr>
+  <div class="row">
+    <div class="col-xs-8">
+      <div ace-editor
+           [(text)]="text"
+      [mode]="'c_cpp'"
+      [theme]="'cobalt'"
+      [options]="options"
+      [readOnly]="false"
+      [autoUpdateContent]="true"
+      [durationBeforeCallback]="1000"
+      (textChanged)="onChange($event)"
+      style="min-height: 200px; width:100%; overflow: auto;"></div>
+    </div>
+  </div>
+
+  <br>
+  <div class="row">
+    <div class="col-xs-3 col-xs-offset-1">
+      <select class="form-control">
+        <option>C</option>
+        <option>C++</option>
+        <option>Java</option>
+        <option>Python</option>
+      </select>
+    </div>
+
+    <div class="col-xs-2 col-xs-offset-1">
+      <button class="btn btn-success">Submit</button>
+    </div>
+
+  </div>
+
+
+
+  <br>
+  <br>
+  <br>
+</div>
+

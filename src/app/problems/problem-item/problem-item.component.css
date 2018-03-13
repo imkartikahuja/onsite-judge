@@ -1,0 +1,9 @@
+.main{
+  background: #eff0f2;
+  box-shadow: 7px 7px 5px #bcb8b8;
+  padding:10px;
+}
+
+p{
+  white-space: pre-wrap;
+}

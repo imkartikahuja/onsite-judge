@@ -1,0 +1,23 @@
+<!--<a-->
+  <!--style="cursor: pointer;"-->
+  <!--class="list-group-item clearfix">-->
+  <!--<div class="pull-left">-->
+    <!--<h4 class="list-group-item-heading">{{ contest.name }}</h4>-->
+    <!--<p class="list-group-item-text">{{ contest.startTime }}</p>-->
+    <!--<p class="list-group-item-text">{{ contest.endTime }}</p>-->
+  <!--</div>-->
+<!--</a>-->
+
+
+  <a
+    style="cursor: pointer; text-decoration: none"
+    class="clearfix thumbnail">
+    <div>
+      <h4>{{ contest.name }}</h4>
+      <p><strong>Start Time: </strong>{{ contest.startTime }}</p>
+      <p><strong>End Time: </strong>{{ contest.endTime }}</p>
+      <button class="btn btn-success" (click)="onOpen()">Open</button>
+    </div>
+  </a>
+
+
