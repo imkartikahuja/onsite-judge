@@ -14,28 +14,29 @@
 
             <hr>
 
-            <form class="form-group">
+            <form class="form-group" #f="ngForm">
               <div class="top-margin">
-                <label for="fName">First Name</label>
-                <input type="text" id="fName" class="form-control">
+                <label for="fName">Name<span class="text-danger">*</span></label>
+                <input type="text" id="fName" class="form-control" ngModel name="name">
               </div>
               <div class="top-margin">
-                <label for="lName">Last Name</label>
-                <input type="text" id= "lName" class="form-control">
+                <label for="email">Email<span class="text-danger">*</span></label>
+                <input type="email" id="email" class="form-control" ngModel name="email" required email #email="ngModel">
+                <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
               </div>
               <div class="top-margin">
                 <label for="username">Username <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="username">
+                <input type="text" class="form-control" id="username" ngModel name="username">
               </div>
 
               <div class="row top-margin">
                 <div class="col-sm-6">
                   <label for="password">Password <span class="text-danger">*</span></label>
-                  <input type="text" id="password" class="form-control">
+                  <input type="password" id="password" class="form-control" ngModel name="password">
                 </div>
                 <div class="col-sm-6">
                   <label for="confirmPassword">Confirm Password <span class="text-danger">*</span></label>
-                  <input type="text" id="confirmPassword" class="form-control">
+                  <input type="password" id="confirmPassword" class="form-control" ngModel name="confPassword">
                 </div>
               </div>
 
@@ -44,7 +45,7 @@
               <div class="row">
 
                 <div class="col-lg-4 text-center col-lg-offset-4">
-                  <button class="btn btn-action" type="submit">Register</button>
+                  <button class="btn btn-action" (click)="onclk()" type="submit">Register</button>
                 </div>
               </div>
             </form>

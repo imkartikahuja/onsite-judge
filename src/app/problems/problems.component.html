@@ -20,7 +20,7 @@
       [autoUpdateContent]="true"
       [durationBeforeCallback]="1000"
       (textChanged)="onChange($event)"
-      style="min-height: 200px; width:100%; overflow: auto;"></div>
+      style="min-height: 500px; width:100%; overflow: auto;"></div>
     </div>
   </div>
 
@@ -36,7 +36,7 @@
     </div>
 
     <div class="col-xs-2 col-xs-offset-1">
-      <button class="btn btn-success">Submit</button>
+      <button class="btn btn-success" (click)="onSubmit()" >Submit</button>
     </div>
 
   </div>

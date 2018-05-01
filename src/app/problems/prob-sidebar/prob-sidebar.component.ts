@@ -9,6 +9,7 @@ export class ProbSidebarComponent implements OnInit {
 
   constructor() { }
 
+  text = "";
   ngOnInit() {
   }
 

@@ -14,14 +14,14 @@
 
             <hr>
 
-            <form>
+            <form class="form-group" #f="ngForm">
               <div class="top-margin">
-                <label>Username/Email <span class="text-danger">*</span></label>
-                <input type="text" class="form-control">
+                <label for="email">Email<span class="text-danger">*</span></label>
+                <input type="email" id="email" class="form-control" ngModel name="email" required email #email="ngModel">
               </div>
               <div class="top-margin">
-                <label>Password <span class="text-danger">*</span></label>
-                <input type="password" class="form-control">
+                <label for="password">Password <span class="text-danger">*</span></label>
+                <input type="password" id="password" class="form-control" ngModel name="password">
               </div>
 
               <hr>

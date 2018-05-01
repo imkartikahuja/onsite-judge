@@ -2,8 +2,8 @@ import {Contest} from "./contest.model";
 import {Problem} from "./problem.model";
 import {ProblemText} from "./problemText.model";
 
-
 export class DataStorageService {
+  http:any;
   a:string = "Chef Tobby is playing a rapid fire with Bhuvan. He gives Bhuvan a string S and each time, Bhuvan has to guess whether there exists 2 equal subsequences in the string or not.\n" +
     "\n" +
     "Bhuvan got a perfect score in the game with Chef Tobby. However, Chef Tobby has now asked Bhuvan to write a program that will do this automatically given a string S. Bhuvan is an intelligent man but he does not know how to write a code. Can you help him?\n" +
@@ -35,7 +35,7 @@ export class DataStorageService {
     "codechef\n";
 
   private contests: Contest[] = [
-    new Contest (1,'COOK86',new Date("November 14, 2017 06:59:59").toString().slice(0,24),new Date("November 14, 2017 23:59:59").toString().slice(0,24),[
+    new Contest (1,'COOK86',new Date("March 23, 2018 10:00:00").toString().slice(0,24),new Date("March 24, 2018 16:00:00").toString().slice(0,24),[
       new Problem(1,"Subsequence Equality", 2497 ,new ProblemText(this.a,this.b,this.c,this.d,this.e)),
 
       new Problem(2,"Another ques",565 ,new ProblemText(this.a,this.b,this.c,this.d,this.e)),
