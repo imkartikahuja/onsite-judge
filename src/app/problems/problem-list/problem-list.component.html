@@ -1,21 +1,21 @@
 <div class="row">
   <div class="col-xs-12">
 
-    <h2>{{contest.name}}</h2>
+    <h2>{{contestName}}</h2>
     <hr>
     <table class="table table-hover">
       <thead>
       <tr>
         <th>Name</th>
         <th class="ctr">Problem ID</th>
-        <th class="ctr">Successful Submissions </th>
+        <!--<th class="ctr">Successful Submissions </th>-->
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let prob of contest.problems; let i=index">
-        <td><a (click)="onLoadProblem(i)" style="cursor: pointer">{{prob.problemName}}</a></td>
-        <td class="ctr">{{ prob.problemId }}</td>
-        <td class="ctr">{{ prob.problemSuccessfulSubmissions }}</td>
+      <tr *ngFor="let prob of problems; let i=index">
+        <td><a (click)="onLoadProblem(i)" style="cursor: pointer">{{prob.name}}</a></td>
+        <td class="ctr">{{ prob.code }}</td>
+        <!--<td class="ctr">{{ prob.problemSuccessfulSubmissions }}</td>-->
       </tr>
       </tbody>
     </table>

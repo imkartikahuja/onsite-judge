@@ -32,8 +32,8 @@ export class SignupComponent implements OnInit {
     '}';
 
 
-    // return this.http.post('http://localhost:3000/signup', this.signupForm.value);
-    return this.http.post('http://192.168.43.189:3000/signup', this.signupForm.value);
+    return this.http.post('http://localhost:3000/signup', this.signupForm.value);
+    // return this.http.post('http://192.168.43.189:3000/signup', this.signupForm.value);
   }
 
   onclk() {

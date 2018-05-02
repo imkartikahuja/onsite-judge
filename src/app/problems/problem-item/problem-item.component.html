@@ -1,21 +1,21 @@
 <div class="row">
   <div class="col-xs-12">
-    <h2>{{ contests[index].problems[probId].problemName }}</h2>
+    <h2>{{ problem.name }}</h2>
     <hr>
     <section class="main">
-      <p align="justify" [innerHTML]="contests[index].problems[probId].problemText.main"></p>
+      <p align="justify" [innerHTML]="problem.mainText"></p>
       <hr>
       <h3>Input</h3>
-      <p>{{ contests[index].problems[probId].problemText.input }}</p>
+      <p>{{ problem.input }}</p>
       <hr>
       <h3>Output</h3>
-      <p>{{ contests[index].problems[probId].problemText.output }}</p>
+      <p>{{ problem.output }}</p>
       <hr>
       <h3>Constraints</h3>
-      <p>{{ contests[index].problems[probId].problemText.contraints }}</p>
+      <p>{{ problem.constraints }}</p>
       <hr>
       <h3>Example</h3>
-      <p>{{ contests[index].problems[probId].problemText.example}}</p>
+      <p>{{ problem.example}}</p>
     </section>
 
   </div>

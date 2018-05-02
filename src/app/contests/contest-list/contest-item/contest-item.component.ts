@@ -9,13 +9,13 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class ContestItemComponent implements OnInit {
 
-  @Input() contest: Contest;
+  @Input() contest;
   @Input() index: number;
+
 
   constructor(private router:Router, private route:ActivatedRoute) { }
 
   ngOnInit() {
-
   }
 
   onOpen(){

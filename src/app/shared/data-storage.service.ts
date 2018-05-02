@@ -1,9 +1,14 @@
 import {Contest} from "./contest.model";
 import {Problem} from "./problem.model";
 import {ProblemText} from "./problemText.model";
+import {Http, Response} from "@angular/http";
+import {Injectable} from "@angular/core";
 
+@Injectable()
 export class DataStorageService {
-  http:any;
+  constructor(private http: Http) {}
+
+
   a:string = "Chef Tobby is playing a rapid fire with Bhuvan. He gives Bhuvan a string S and each time, Bhuvan has to guess whether there exists 2 equal subsequences in the string or not.\n" +
     "\n" +
     "Bhuvan got a perfect score in the game with Chef Tobby. However, Chef Tobby has now asked Bhuvan to write a program that will do this automatically given a string S. Bhuvan is an intelligent man but he does not know how to write a code. Can you help him?\n" +
@@ -58,6 +63,27 @@ export class DataStorageService {
   ];
 
   getContests() {
+    // let url = 'http://localhost:3000/problems';
+    // this.http.post(url, {name: 'Subsequence Equality', code: 'SUB', mainText: this.a,
+    //   input: this.b,
+    //   output: this.c,
+    //   constraints: this.d,
+    //   example: this.e,
+    //   time_limit: 2,
+    //   _contestID: '5ab5dc51732f5de924666a99'
+    // }).subscribe(
+    //   (response:Response) => {
+    //
+    //     // alert(response);
+    //     console.log(response);
+    //
+    //   },
+    //   (error) => {
+    //     console.log(error);
+    //
+    //   }
+    // );
+
     return this.contests.slice();
   }
 
