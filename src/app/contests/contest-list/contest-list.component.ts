@@ -24,9 +24,10 @@ export class ContestListComponent implements OnInit {
     this.conService.getContests()
       .subscribe(
         (data: any[]) => {
+
           this.contests = data;
         },
-        (error) => console.log(error)
+        (error) => {console.log(error);}
       );
 
   }

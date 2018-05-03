@@ -3,6 +3,7 @@ import {DataStorageService} from "../../shared/data-storage.service";
 import {Contest} from "../../shared/contest.model";
 import {ContestService} from "../../contests/contest.service";
 import {ProblemService} from "../../shared/problem.service";
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Component({
   selector: 'app-problem-item',
@@ -18,7 +19,7 @@ export class ProblemItemComponent implements OnInit {
   @Input() index:number;
   @Input() probId:number;
 
-  constructor(private data:DataStorageService,private contestService:ContestService, private problemService: ProblemService) { }
+  constructor(private data:DataStorageService,private contestService:ContestService, private problemService: ProblemService,private spinnerService: Ng4LoadingSpinnerService) { }
 
   ngOnInit() {
     // this.contests = this.data.getContests();
@@ -29,14 +30,17 @@ export class ProblemItemComponent implements OnInit {
 
     let id = this.contestService.getId(this.index);
 
+
+    this.spinnerService.show();
     this.problemService.getProblems(id)
       .subscribe(
         (data: any[]) => {
           this.problems = data;
           this.problem = this.problems[this.probId];
           console.log(this.problem);
+          this.spinnerService.hide();
         },
-        (error) => console.log(error)
+        (error) => {this.spinnerService.hide();console.log(error);}
       );
 
 

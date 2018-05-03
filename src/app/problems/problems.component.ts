@@ -4,6 +4,8 @@ import {ActivatedRoute, Params} from "@angular/router";
 import {Headers, Http, Response} from "@angular/http";
 import {ContestService} from "../contests/contest.service";
 import {ProblemService} from "../shared/problem.service";
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+
 @Component({
   selector: 'app-problems',
   templateUrl: './problems.component.html',
@@ -19,11 +21,13 @@ export class ProblemsComponent implements OnInit {
     private route:ActivatedRoute,
     private http: Http,
     private contestService: ContestService,
-    private problemService: ProblemService
-    ) { }
+    private problemService: ProblemService,
+    private spinnerService: Ng4LoadingSpinnerService
+  ) { }
 
   text:string = "";
   codee:string = "";
+  subbtn = false;
   ngOnInit() {
     this.route.params
       .subscribe(
@@ -72,7 +76,8 @@ export class ProblemsComponent implements OnInit {
   }
 
   onSubmit(){
-
+    this.subbtn = true;
+    this.spinnerService.show();
 
     let contestId = this.contestService.getId(this.index);
     // let problemId = this.problemService.getId(this.probId);
@@ -90,11 +95,14 @@ export class ProblemsComponent implements OnInit {
     } ).subscribe(
       (response:Response) => {
 
+        this.spinnerService.hide();
         alert(response["_body"]);
+        this.subbtn = false;
         console.log(response["_body"]);
 
       },
       (error) => {
+        this.spinnerService.hide();
         console.log(error);
 
       }

@@ -4,6 +4,7 @@ import {DataStorageService} from "../../shared/data-storage.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ContestService} from "../../contests/contest.service";
 import {ProblemService} from "../../shared/problem.service";
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Component({
   selector: 'app-problem-list',
@@ -23,7 +24,8 @@ export class ProblemListComponent implements OnInit {
     private router:Router,
     private route:ActivatedRoute,
     private contestService:ContestService,
-    private problemService: ProblemService
+    private problemService: ProblemService,
+    private spinnerService: Ng4LoadingSpinnerService
     ) { }
 
   ngOnInit() {
@@ -36,13 +38,15 @@ export class ProblemListComponent implements OnInit {
     this.contestName = this.contestService.getName(this.indexx);
     // console.log("id",id);
 
+    this.spinnerService.show();
     this.problemService.getProblems(id)
       .subscribe(
         (data: any[]) => {
           console.log(data);
           this.problems = data;
+          this.spinnerService.hide();
         },
-        (error) => console.log(error)
+        (error) => {this.spinnerService.hide();console.log(error);}
       );
 
   }

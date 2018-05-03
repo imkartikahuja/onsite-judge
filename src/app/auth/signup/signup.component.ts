@@ -4,6 +4,9 @@ import 'rxjs/Rx';
 import {Observable} from "rxjs/Observable";
 import {NgForm} from "@angular/forms";
 import {Router} from "@angular/router";
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+import {AuthService} from "../auth.service";
+
 
 @Component({
   selector: 'app-signup',
@@ -12,7 +15,9 @@ import {Router} from "@angular/router";
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private router: Router,private http: Http) { }
+  constructor(private router: Router,private http: Http, private spinnerService: Ng4LoadingSpinnerService,
+              private authService: AuthService
+  ) { }
 
   ngOnInit() {
   }
@@ -20,34 +25,28 @@ export class SignupComponent implements OnInit {
   @ViewChild('f') signupForm: NgForm;
 
   clk(){
-    let code = '#include <iostream>\n' +
-    'using namespace std;\n' +
-    '\n' +
-    'int main(){\n' +
-    'int t;\n' +
-    'cin>>t;\n' +
-    'while(t--){\n' +
-    'cout<<"hello\\n";\n' +
-    '}\n' +
-    '}';
-
-
+    this.spinnerService.show();
     return this.http.post('http://localhost:3000/signup', this.signupForm.value);
     // return this.http.post('http://192.168.43.189:3000/signup', this.signupForm.value);
   }
 
   onclk() {
-
+    let user;
     this.clk().subscribe(
       (response: Response) => {
+          user = response.json().name;
+          console.log(user);
           var headers: Headers = response.headers;
           console.log(headers);
           let token =  response.headers.get('x-auth');
           console.log(token);
           sessionStorage.setItem('token',token);
+          sessionStorage.setItem('username',user);
+          this.authService.onlogin();
+        this.spinnerService.hide();
           this.router.navigate(['/contests']);
         },
-      (error) =>{alert(error); console.log(error);}
+      (error) =>{this.spinnerService.hide();alert(error); console.log(error);}
     );
   }
 

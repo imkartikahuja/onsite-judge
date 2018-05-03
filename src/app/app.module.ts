@@ -5,6 +5,7 @@ import { MarkdownModule } from 'angular2-markdown';
 import { AceEditorModule } from 'ng2-ace-editor';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { MomentModule } from 'angular2-moment';
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -27,6 +28,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import { ContestsComponent } from './contests/contests.component';
 import {ContestService} from "./contests/contest.service";
 import {ProblemService} from "./shared/problem.service";
+import {AuthService} from "./auth/auth.service";
 
 @NgModule({
   declarations: [
@@ -53,9 +55,10 @@ import {ProblemService} from "./shared/problem.service";
     AceEditorModule,
     AppRoutingModule,
     BsDropdownModule.forRoot(),
-    MomentModule
+    MomentModule,
+    Ng4LoadingSpinnerModule
   ],
-  providers: [DataStorageService,ContestService, ProblemService],
+  providers: [DataStorageService,ContestService, ProblemService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
