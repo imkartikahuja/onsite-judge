@@ -17,7 +17,7 @@ export class ProblemService {
 
     // let  url = 'http://localhost:3000/problems/find';
 
-    return this.http.post('http://localhost:3000/problems/find', {id: id})
+    return this.http.post('http://172.16.153.0:3000/problems/find', {id: id})
       .map(
         (response: Response) => {
           const data = response.json();

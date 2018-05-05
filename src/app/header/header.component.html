@@ -4,10 +4,15 @@
       <a class="navbar-brand" routerLink="/"><p>Jaypee Onsite Judge</p></a>
     </div>
     <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav pull-right">
+      <ul class="nav navbar-nav pull-right" *ngIf="!authService.isAuthenticated">
         <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/" >Home</a></li>
-        <li routerLinkActive="active"><a class="btn" routerLink="/signup">Sign Up</a></li>
-        <li routerLinkActive="active"><a class="btn" routerLink="/signin">Sign In</a></li>
+        <li routerLinkActive="active" ><a class="btn" routerLink="/signup">Sign Up</a></li>
+        <li routerLinkActive="active" ><a class="btn" routerLink="/signin">Sign In</a></li>
+      </ul>
+      <ul class="nav navbar-nav pull-right" *ngIf="authService.isAuthenticated">
+        <li routerLinkActive="active" ><a  class="btn" style="font-size:20px">Welcome {{authService.getUser() | titleCase}}</a></li>
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a class="btn" routerLink="/contests">Contests</a></li>
+        <li routerLinkActive="active" (click)="onLogout()" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/" >Logout</a></li>
       </ul>
     </div>
   </div>

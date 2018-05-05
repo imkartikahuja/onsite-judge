@@ -10,7 +10,7 @@ export class ContestService {
   contests;
 
   getContests() {
-     return this.http.get('http://localhost:3000/contests')
+     return this.http.get('http://172.16.153.0:3000/contests')
        .map(
          (response: Response) => {
            const data = response.json();

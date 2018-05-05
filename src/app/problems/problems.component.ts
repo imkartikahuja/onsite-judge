@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import 'brace/mode/c_cpp'; import 'ace-builds/src-min-noconflict/snippets/c_cpp';
 import {ActivatedRoute, Params} from "@angular/router";
 import {Headers, Http, Response} from "@angular/http";
@@ -12,6 +12,8 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
   styleUrls: ['./problems.component.css']
 })
 export class ProblemsComponent implements OnInit {
+
+  @ViewChild('langinput') langinput: ElementRef;
 
   index:number;
   probId:number;
@@ -76,21 +78,22 @@ export class ProblemsComponent implements OnInit {
   }
 
   onSubmit(){
+
     this.subbtn = true;
     this.spinnerService.show();
 
     let contestId = this.contestService.getId(this.index);
     // let problemId = this.problemService.getId(this.probId);
 
-    // let url = 'http://192.168.43.189:3000/submit';
-    let url = 'http://localhost:3000/submit';
+    let url = 'http://172.16.153.0:3000/submit';
+    // let url = 'http://localhost:3000/submit';
 
     console.log(this.codee);
     var headers = new Headers();
 
     let token = sessionStorage.getItem('token');
     headers.append('x-auth', token);
-    this.http.post(url, {_problemID: this.problemId, _contestID: contestId, code: this.codee, language:'cpp'},{
+    this.http.post(url, {_problemID: this.problemId, _contestID: contestId, code: this.codee, language:this.langinput.nativeElement.value},{
       headers: headers
     } ).subscribe(
       (response:Response) => {

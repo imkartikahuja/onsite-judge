@@ -29,6 +29,8 @@ import { ContestsComponent } from './contests/contests.component';
 import {ContestService} from "./contests/contest.service";
 import {ProblemService} from "./shared/problem.service";
 import {AuthService} from "./auth/auth.service";
+import {TitleCasePipe} from "./pipes/title-case.pipe";
+import { SubmissionComponent } from './submission/submission.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import {AuthService} from "./auth/auth.service";
     ProblemListComponent,
     SigninComponent,
     SignupComponent,
-    ContestsComponent
+    ContestsComponent,
+    TitleCasePipe,
+    SubmissionComponent
   ],
   imports: [
     BrowserModule,
