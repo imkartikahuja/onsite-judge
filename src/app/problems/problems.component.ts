@@ -5,6 +5,7 @@ import {Headers, Http, Response} from "@angular/http";
 import {ContestService} from "../contests/contest.service";
 import {ProblemService} from "../shared/problem.service";
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-problems',
@@ -85,7 +86,7 @@ export class ProblemsComponent implements OnInit {
     let contestId = this.contestService.getId(this.index);
     // let problemId = this.problemService.getId(this.probId);
 
-    let url = 'http://172.16.153.0:3000/submit';
+    let url = environment.apiUrl+'/submit';
     // let url = 'http://localhost:3000/submit';
 
     console.log(this.codee);

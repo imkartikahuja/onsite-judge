@@ -2,6 +2,7 @@ import {Http, Response} from "@angular/http";
 import {Injectable} from "@angular/core";
 import 'rxjs/Rx';
 import {Router} from "@angular/router";
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class ContestService {
@@ -10,7 +11,7 @@ export class ContestService {
   contests;
 
   getContests() {
-     return this.http.get('http://172.16.153.0:3000/contests')
+     return this.http.get(environment.apiUrl+'/contests')
        .map(
          (response: Response) => {
            const data = response.json();

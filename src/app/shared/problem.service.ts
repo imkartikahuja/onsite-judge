@@ -1,6 +1,7 @@
 import {Headers, Http, Response} from "@angular/http";
 import {Injectable} from "@angular/core";
 import {Router} from "@angular/router";
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class ProblemService {
@@ -17,7 +18,7 @@ export class ProblemService {
 
     // let  url = 'http://localhost:3000/problems/find';
 
-    return this.http.post('http://172.16.153.0:3000/problems/find', {id: id})
+    return this.http.post(environment.apiUrl+'/problems/find', {id: id})
       .map(
         (response: Response) => {
           const data = response.json();

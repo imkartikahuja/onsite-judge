@@ -4,6 +4,7 @@ import {Headers, Http, Response} from "@angular/http";
 import {NgForm} from "@angular/forms";
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import {AuthService} from "../auth.service";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-signin',
@@ -26,7 +27,7 @@ export class SigninComponent implements OnInit {
     let user;
 
 
-    let url = 'http://172.16.153.0:3000/login';
+    let url = environment.apiUrl+'/login';
     // let url = 'http://localhost:3000/login';
     this.http.post(url, this.signinForm.value).subscribe(
       (response: Response) => {

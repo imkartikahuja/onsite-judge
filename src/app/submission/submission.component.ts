@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Headers, Http, Response} from "@angular/http";
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-submission',
@@ -21,7 +22,7 @@ export class SubmissionComponent implements OnInit {
 
     // let  url = 'http://localhost:3000/problems/find';
     this.spinnerService.show();
-    this.http.get('http://172.16.153.0:3000/mysubmissions',{headers:headers})
+    this.http.get(environment.apiUrl+'/mysubmissions',{headers:headers})
       .subscribe(
         (response: Response) => {
           const data = response.json();

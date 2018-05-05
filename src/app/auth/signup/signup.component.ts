@@ -6,6 +6,7 @@ import {NgForm} from "@angular/forms";
 import {Router} from "@angular/router";
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import {AuthService} from "../auth.service";
+import {environment} from "../../../environments/environment";
 
 
 @Component({
@@ -27,7 +28,7 @@ export class SignupComponent implements OnInit {
   clk(){
     this.spinnerService.show();
     // return this.http.post('http://localhost:3000/signup', this.signupForm.value);
-    return this.http.post('http://172.16.153.0:3000/signup', this.signupForm.value);
+    return this.http.post(environment.apiUrl+'/signup', this.signupForm.value);
   }
 
   onclk() {
