@@ -1,6 +1,6 @@
 # Onsite Judge
 
-http://13.232.95.78/
+http://13.127.221.249/
 
 BACKEND - https://github.com/imkartikahuja/onsite-judge-backend
 
