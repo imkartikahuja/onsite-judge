@@ -8,6 +8,27 @@ BACKEND - https://github.com/imkartikahuja/onsite-judge-backend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.6.
 
+## ScreenShots
+### Home
+![](https://github.com/imkartikahuja/onsite-judge/blob/master/Screenshots/home3.png)
+
+### Registration
+![](https://github.com/imkartikahuja/onsite-judge/blob/master/Screenshots/registration.png)
+
+### Signin
+![](https://github.com/imkartikahuja/onsite-judge/blob/master/Screenshots/signin.png)
+
+### Contests
+![](https://github.com/imkartikahuja/onsite-judge/blob/master/Screenshots/contests.png)
+
+### Contest
+![](https://github.com/imkartikahuja/onsite-judge/blob/master/Screenshots/contest.png)
+
+### Question Description
+![](https://github.com/imkartikahuja/onsite-judge/blob/master/Screenshots/prob.png)
+
+![](https://github.com/imkartikahuja/onsite-judge/blob/master/Screenshots/prob2.png)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
